@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="test1">我的高度是?</div>
+<span style="width: 10px;height: 10px"></span>
+<div>
+  <img src="a.jpg" style="width: 10px;height: 10px">
+</div>
+
+<style>
+  .test1 {
+    font-size: 16px;
+    line-height: 0;
+    border: 1px solid #ccc;
+    background: #eee;
+  }
+</style>
+<script>
+  console.log(document.getElementsByClassName("test1"))
+  console.log(document.getElementsByClassName("test1")[0].style.offsetHeight)
+</script>
+<hr/>
+多行文本垂直居中
+<style>
+.box {
+line-height: 120px;
+background-color: #f0f3f9;
+}
+.content {
+display: inline-block;
+line-height: 20px;
+margin: 0 20px;
+vertical-align: middle;
+}</style>
+<div class="box">
+  <div class="content">基于行高实现的...</div> </div>
+
+
+那什么时候会触发 BFC 呢?常见的情 如下:
+• html 根
+• float 的值不为 none
+• overflow 的值为 auto、scroll 或 hidden
+• display 的值为 table-cell、table-caption 和 inline-block 中的任何一个
+• position 的值不为 relative 和 static。
+<div class="box">
+  <div class="list"><input id="one">1</div>
+  <div class="list"><input id="two">2</div>
+  <div class="list"><input id="three">3</div>
+  <div class="list"><input id="four">4</div>
+</div>
+<div class="link">
+  <label class="click" for="one">1</label>
+  <label class="click" for="two">2</label>
+  <label class="click" for="three">3</label>
+  <label class="click" for="four">4</label>
+</div>
+<style>
+  .box {
+    width: 20em;
+    height: 10em;
+    border: 1px solid #ddd;
+    overflow: hidden;
+  }
+  .list {
+    height: 100%;
+    background: #ddd;
+    text-align: center;
+    position: relative;
+  }
+  .list > input {
+    position: absolute; top:0;
+    height: 100%; width: 1px;
+    border:0; padding: 0; margin: 0;
+    clip: rect(0 0 0 0);
+  }
+</style>
+
+</body>
+</html>

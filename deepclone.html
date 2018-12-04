@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  var a = {b:{c:{}}}
+  var a2 = shallowClone(a)
+
+  function shallowClone(source) {
+    var target={}
+    for(var i in source){
+        if(source.hasOwnProperty(i)){
+          target[i] =  source[i]
+        }
+    }
+    return target
+  }
+  console.log(a2)
+  console.log(a2.b.c === a.b.c)
+
+
+  function clone(source) {
+    if (!isObject(source)) return source;
+    var target={}
+    for(var i in source){
+      if(source.hasOwnProperty(i)){
+          if(typeof source[i]==='object'){
+            target[i] = clone(source[i])
+          }else {
+            target[i] =  source[i]
+          }
+
+      }
+    }
+    return target
+  }
+  var a3 = clone(a)
+  console.log(a3)
+  console.log(a3.b.c === a.b.c)
+
+  function isObject(x) {
+    return Object.prototype.toString.call(x) === '[object Object]';
+  }
+
+  function cloneJSON(source) {//深拷贝
+    return JSON.parse(JSON.stringify(source));
+  }
+</script>
+</body>
+</html>

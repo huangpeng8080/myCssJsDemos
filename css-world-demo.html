@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS世界</title>
+    <style>
+      dot {
+        display: inline-block;
+        height: 1em;
+        line-height: 1;
+        text-align: left;
+        vertical-align: -.25em;
+        overflow: hidden;
+      }
+      dot::before {
+        display: block;
+        content: '...\A..\A.';
+
+        white-space: pre-wrap;
+        animation: dot 3s infinite step-start both;
+      }
+      @keyframes dot {
+        33% { transform: translateY(-2em); }
+        66% { transform: translateY(-1em); }
+      }
+    </style>
+</head>
+<body>
+正在加 中<dot>...</dot>
+<style>
+  a + a:before {
+    content: "";
+    font-size: 0;
+    padding: 10px 3px 1px;
+    margin-left: 6px;
+    border-left: 1px solid gray;
+  }
+</style>
+
+<a href=""> 登录 </a><a href="">注册</a>
+
+<style>
+  .icon-menu {
+    display: inline-block;
+    width: 140px; height: 10px;
+    padding: 35px 0;
+    border-top: 10px solid;
+    border-bottom: 10px solid;
+    background-color: currentColor;
+    background-clip: content-box;
+  }
+
+  .icon-dot {
+    display: inline-block;
+    width: 100px; height: 100px;
+    padding: 10px;
+    border: 10px solid;
+    border-radius: 50%;
+    background-color: currentColor;
+    background-clip: content-box;
+  }
+</style>
+</body>
+</html>
